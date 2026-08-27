@@ -1,0 +1,8 @@
+{
+  "github_publication_allowed": false,
+  "manual_acceptance_required": true,
+  "private_release_lock_sha256": "ac84174fc975b344218c609689009f0aad2e70d39f8493872fc544a1b28b9740",
+  "reason": "scientific equivalence is accepted; final public publication is gated on user-facing Elara X integration acceptance",
+  "repository": "SpaceMan-G/elara-x-dtm2020-native",
+  "status": "WAITING_FOR_MANUAL_ELARA_X_UI_ACCEPTANCE"
+}

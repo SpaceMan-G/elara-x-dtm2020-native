@@ -1,0 +1,31 @@
+{
+  "external_only": [
+    "DTM_2020_F107_Kp",
+    "DTM_2020_F107_Kp.dat",
+    "CNES/SWAMI DTM source",
+    "DTM fitted coefficients",
+    "official oracle source and binaries"
+  ],
+  "private_elara_x_release_lock_sha256": "ac84174fc975b344218c609689009f0aad2e70d39f8493872fc544a1b28b9740",
+  "public_component_lineage": [
+    "M16.5R provenance/licence isolation boundary",
+    "M16.6R independent public-spec mathematical contract",
+    "M16.7R external-resource boundary",
+    "M16.8R public kernel skeleton",
+    "M16.9R environmental/parameter schema contract",
+    "M17.0R public driver adapter and basis primitives"
+  ],
+  "repository": "SpaceMan-G/elara-x-dtm2020-native",
+  "repository_role": "licence-safe public DTM2020 companion",
+  "schema_version": "1.0.0",
+  "scientific_authority": {
+    "doi": "10.2514/1.J064156",
+    "paper": "Xu, Du & Cao (2025), Singularity-Free Formulations for Drag Temperature Model and Its Analytical Gradient",
+    "paper_sha256_private_controlled_copy": "eff1b3885147724bd352469b7f7afbb16112b268702459613442c38492d5c56a"
+  },
+  "upstream": {
+    "dtm2020_documentation": "https://swami-h2020-eu.github.io/mcm/dtm2020.html",
+    "swami_repository": "https://github.com/swami-h2020-eu/mcm",
+    "upstream_material_redistributed": false
+  }
+}

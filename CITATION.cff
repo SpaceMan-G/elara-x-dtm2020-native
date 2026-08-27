@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this public companion, please cite the repository and the underlying DTM2020 scientific literature."
+title: "Elara X DTM2020 Native — licence-safe public companion"
+type: software
+authors:
+  - family-names: "Joulianou"
+    given-names: "Giuseppe A. A."
+version: 0.1.0.dev0
+date-released: 2026-08-27
+repository-code: "https://github.com/SpaceMan-G/elara-x-dtm2020-native"
+keywords:
+  - DTM2020
+  - thermosphere
+  - atmospheric density
+  - Elara X

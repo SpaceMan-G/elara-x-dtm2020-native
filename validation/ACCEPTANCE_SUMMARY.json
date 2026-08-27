@@ -1,0 +1,17 @@
+{
+  "accepted_64_case_campaign_rerun_during_c6_c7": false,
+  "amvs_enabled": true,
+  "combined_heatmap_enabled": true,
+  "combined_model_analysis_enabled": true,
+  "comparison_count": 576,
+  "failure_count": 0,
+  "native_cases": 64,
+  "official_oracle_cases": 64,
+  "official_oracle_rerun_during_c6_c7": false,
+  "private_final_lock_sha256": "ac84174fc975b344218c609689009f0aad2e70d39f8493872fc544a1b28b9740",
+  "public_repository_contains_private_numerical_core": false,
+  "restricted_resource_content_hash_published": false,
+  "restricted_resource_redistributed": false,
+  "schema_version": "1.0.0",
+  "scope": "PRIVATE_ELARA_X_OPERATIONAL_IMPLEMENTATION_ACCEPTANCE_METADATA"
+}
