@@ -1,0 +1,140 @@
+{
+  "authorization_basis": "Written clarification from Sean Bruinsma retained privately by the repository maintainer; public summary in docs/AUTHORIZATION_AND_LICENSING.md.",
+  "coefficient_file": "data/DTM_2020_F107_Kp.dat",
+  "coefficient_sha256": "c08f7ca61a3521a736a857850bd6cacd169f9302c356dc8523608b1a1d941588",
+  "files": {
+    ".github/workflows/tests.yml": {
+      "bytes": 486,
+      "sha256": "e07f5b5344cfbaad400e93bd2320739195ea63c54aab4a4a2ccd707edf511ffa"
+    },
+    ".gitignore": {
+      "bytes": 136,
+      "sha256": "23ff15d875141c3acb77d5fb574681dda21c345f130a136bae72e981ad096104"
+    },
+    "CITATION.cff": {
+      "bytes": 442,
+      "sha256": "fd58c09b153940e9df87030ab8b7671f0efa84a545bad849b1e493891c9c7d06"
+    },
+    "LICENSE": {
+      "bytes": 1571,
+      "sha256": "b45cc69494a849efd7232d3e2de85480c8ac6e389c974244a9b882aeab4e5085"
+    },
+    "LICENSING.md": {
+      "bytes": 999,
+      "sha256": "351cc54ea0004d248936cc88ab3cde73b302aa8c9d84b599b67fca2435707ea6"
+    },
+    "NOTICE.md": {
+      "bytes": 1220,
+      "sha256": "8baac6f43f4ab1993cd7d00ee4943b77492f9fd04a030ac9b4da6f68d76ab8b1"
+    },
+    "PROVENANCE.json": {
+      "bytes": 1284,
+      "sha256": "640ef02b96c7e5030d330a8b27122a8a65f1f42293a93d6d263fbaff7ec31216"
+    },
+    "PUBLICATION_GATE.json": {
+      "bytes": 421,
+      "sha256": "b4cee54aaf6cd0a0f77ac79e0fd1cd2695911aeafae268712c08e42916714e1d"
+    },
+    "README.md": {
+      "bytes": 4786,
+      "sha256": "f5c78c2311a7165b6f2546df6472d8112d6f334491a8c5e4355a2ab9c9ce8df4"
+    },
+    "USER_ACCEPTANCE_CHECKLIST.md": {
+      "bytes": 2098,
+      "sha256": "2d2435d5953432634902de3f5a5e6ca4c463cf74d4e91af77d41c6cdb3634c02"
+    },
+    "data/DTM_2020_F107_Kp.dat": {
+      "bytes": 19594,
+      "sha256": "c08f7ca61a3521a736a857850bd6cacd169f9302c356dc8523608b1a1d941588"
+    },
+    "docs/AUTHORIZATION_AND_LICENSING.md": {
+      "bytes": 1726,
+      "sha256": "db41678b0c06eb36cc4bf95bf3265b7d90f664448b8c302c37bfa1b4ace1d4a4"
+    },
+    "docs/ELARA_X_INTEGRATION.md": {
+      "bytes": 666,
+      "sha256": "604be5202ad149126d05c80d7148849dcf696190e1aaef9b04583581e868a272"
+    },
+    "docs/INPUTS_OUTPUTS_AND_PROCESS.md": {
+      "bytes": 2392,
+      "sha256": "204c62fa3d64bc71b8c13fc598899510f357beafd5ab48b4b3b6867334bc7d31"
+    },
+    "docs/MODEL_MATHEMATICS.md": {
+      "bytes": 3786,
+      "sha256": "ae944aa888408b685b7074dc5f11c651604e2f6e803f308b1e3b0d3e1c1458be"
+    },
+    "docs/PROVENANCE.md": {
+      "bytes": 1861,
+      "sha256": "05e3cb480f7ef53520aef55078994781f9005f5ff48a08c9267850351eacdbd7"
+    },
+    "docs/SCIENTIFIC_BASIS.md": {
+      "bytes": 1135,
+      "sha256": "e2fcdc3227228b424f4e24cd6032769d6ae3c93bd10b4ee492186223aed55c68"
+    },
+    "docs/VALIDATION_AND_REPRODUCIBILITY.md": {
+      "bytes": 2278,
+      "sha256": "16d164783dec86b3d024e634d43218420ac41981aebbe151b6b12ad23941381a"
+    },
+    "docs/WORKED_WORKFLOW.md": {
+      "bytes": 2099,
+      "sha256": "c9953cef2ccf324b3c89d4ac6e3fba0ebad61b25f21f92c1819d7f4fbc118b18"
+    },
+    "pyproject.toml": {
+      "bytes": 391,
+      "sha256": "a93ad9454b48b4484ce653aa5e80b46ef57425874865e0257d12510545bd724d"
+    },
+    "resources/README.md": {
+      "bytes": 486,
+      "sha256": "fe16d0b93b3939b93e0a9e3f267e31d162a3c6862ddec9dcac8c3e31ba780538"
+    },
+    "src/elara_x/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/elara_x/atmospheric/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/elara_x/atmospheric/dtm2020_external_resource.py": {
+      "bytes": 6840,
+      "sha256": "90393885ed1f7ed5c2d580f0b87d9c8905927d1dc0881868e1fdd6a65b247266"
+    },
+    "src/elara_x/atmospheric/dtm2020_public_interface.py": {
+      "bytes": 5928,
+      "sha256": "66be84fa6646f6f2137147ed258a6ad970b5d5f7e1a734a4f6c70404fd387a68"
+    },
+    "src/elara_x/atmospheric/dtm2020_public_kernel.py": {
+      "bytes": 8603,
+      "sha256": "e13d3e061ee77facff5f2c5c50640b6a690526550236e2e83bc1fe1cb21dbd51"
+    },
+    "tests/atmospheric/test_dtm2020_external_resource_boundary.py": {
+      "bytes": 5582,
+      "sha256": "2d51d34ca5da99156814ad27a6c765b1cecf51705c2a051f91616f95817c47f4"
+    },
+    "tests/atmospheric/test_dtm2020_public_interface.py": {
+      "bytes": 4135,
+      "sha256": "b8e8a6096741d8c43f25487c4c495dee06db85c2d5205b7200c4e0b6550d84b8"
+    },
+    "tests/atmospheric/test_dtm2020_public_kernel.py": {
+      "bytes": 4715,
+      "sha256": "f14e3bc90f276124c4cf5e11b79250f0085823dbafbb6a7e82f2bad2ce2f9d5e"
+    },
+    "validation/ACCEPTANCE_SUMMARY.json": {
+      "bytes": 680,
+      "sha256": "e79bd955dde0041bd3e46dbb904be4e80283b2632b50b83ba8f3a422b3f503c7"
+    },
+    "validation/README.md": {
+      "bytes": 539,
+      "sha256": "ef23a49237af7d8e80379431efab307e1a4a84bda38b78fc2d87775b3cd3c196"
+    }
+  },
+  "license_file": "LICENSE",
+  "license_sha256": "b45cc69494a849efd7232d3e2de85480c8ac6e389c974244a9b882aeab4e5085",
+  "model": "DTM2020 Operational",
+  "official_swami_mcm_commit": "a488a7c9d030bfbe86e88ab3d28a7ec5589b92e0",
+  "original_swami_fortran_redistributed": false,
+  "private_elara_x_internals_redistributed": false,
+  "private_validation_datasets_redistributed": false,
+  "repository": "SpaceMan-G/elara-x-dtm2020-native",
+  "schema": "ELARA_X_DTM2020_PUBLICATION_MANIFEST_V1"
+}

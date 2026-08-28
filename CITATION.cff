@@ -1,15 +1,15 @@
 cff-version: 1.2.0
-message: "If you use this public companion, please cite the repository and the underlying DTM2020 scientific literature."
-title: "Elara X DTM2020 Native — licence-safe public companion"
+message: "If you use this Elara X DTM2020 implementation, cite this repository and the underlying DTM2020/SWAMI scientific sources."
+title: "Elara X DTM2020 Native"
 type: software
 authors:
   - family-names: "Joulianou"
-    given-names: "Giuseppe A. A."
-version: 0.1.0.dev0
-date-released: 2026-08-27
+    given-names: "Giuseppe"
 repository-code: "https://github.com/SpaceMan-G/elara-x-dtm2020-native"
 keywords:
   - DTM2020
   - thermosphere
   - atmospheric density
+  - satellite drag
+  - SWAMI
   - Elara X

@@ -1,71 +1,84 @@
-# Elara X DTM2020 Native — licence-safe public companion
+# Elara X — DTM2020 Native
 
-This repository is the licence-safe public companion to the private Elara X
-DTM2020 Operational integration.
+A licence-aware Python implementation and integration-oriented reference for the **operational DTM2020 thermosphere model**.
 
-## What is public here
+This repository is the public companion to the private, first-class DTM2020 implementation used by Elara X. It is intended to make the model interface, governing mathematics, input/output semantics, provenance, validation approach, and reproducibility contract understandable without redistributing the original SWAMI Fortran source.
 
-The repository contains independently developed public-specification components:
+## Important licence notice
 
-- external-resource boundary and path policy;
-- public DTM2020 state/input primitives;
-- F10.7/Kp operational vector semantics and generic mathematical basis helpers;
-- unit tests for those public-safe components;
-- scientific/provenance/validation documentation.
+DTM2020 is the property of the **Centre National d'Études Spatiales (CNES)**. The official DTM/SWAMI licence supplied with the model is included as [`LICENSE`](LICENSE). Read that licence before using this repository.
+
+The official operational coefficient file is included at:
+
+`data/DTM_2020_F107_Kp.dat`
+
+It is distributed **together with the applicable DTM licence and provenance information**. No broader rights are asserted or granted by this repository.
+
+The maintainer has retained written clarification from the DTM/CNES contact concerning public availability of an independently structured implementation and distribution of the model coefficients together with the licence. The original correspondence itself is retained privately; the operative provenance summary is recorded in [`docs/AUTHORIZATION_AND_LICENSING.md`](docs/AUTHORIZATION_AND_LICENSING.md).
+
+## What is included
+
+- a public Python-facing DTM2020 implementation layer;
+- an external-resource interface;
+- the official operational DTM2020 coefficient file;
+- the applicable DTM/SWAMI licence;
+- governing-mathematics and physical-process documentation;
+- input/output and computation-flow documentation;
+- validation and reproducibility guidance;
+- provenance and publication notices;
+- public tests.
 
 ## What is deliberately not included
 
-This repository does **not** contain or redistribute:
+- the original SWAMI/CNES Fortran source files;
+- private Elara X implementation internals;
+- private resource-authorisation machinery;
+- private scientific acceptance locks;
+- TU Delft source datasets;
+- CelesTrak/GFZ managed space-weather datasets;
+- private Elara X application code.
 
-- CNES DTM source code;
-- SWAMI DTM Fortran source;
-- the `DTM_2020_F107_Kp` / `DTM_2020_F107_Kp.dat` coefficient resource;
-- coefficient values or supporting DTM data;
-- the private Elara X operational numerical core;
-- the private Elara X application, UI, AMVS implementation, CFD/DSMC code, or
-  manuscript tooling.
+## Model scope
 
-The official SWAMI/CNES resource must be obtained and used only under the
-applicable upstream licence. This repository does not grant rights to any
-third-party DTM software or data.
+DTM2020 is a semi-empirical thermosphere model. The operational variant uses **F10.7** solar radio flux and **Kp** geomagnetic activity, together with position, local solar time, season/day of year and altitude, to predict thermospheric temperature, total density and constituent composition.
 
-## Scientific status
+The official SWAMI documentation describes DTM2020 as providing point-wise temperature, density and composition predictions for the thermosphere and identifies F10.7 and Kp as the operational model drivers.
 
-The complete **private** Elara X operational implementation associated with
-this public companion has passed:
+## Documentation
 
-- 64 native real-resource cases;
-- 64 official SWAMI-oracle cases;
-- 576 field comparisons;
-- zero equivalence failures;
-- final first-class Elara X integration for AMVS, Combined Model Analysis and
-  Combined Atmospheric Heatmap.
+Start with:
 
-That acceptance applies to the private operational implementation. It must not
-be read as a claim that the public-safe skeleton in this repository contains the
-restricted/complete DTM numerical kernel.
+- [`docs/MODEL_MATHEMATICS.md`](docs/MODEL_MATHEMATICS.md)
+- [`docs/INPUTS_OUTPUTS_AND_PROCESS.md`](docs/INPUTS_OUTPUTS_AND_PROCESS.md)
+- [`docs/WORKED_WORKFLOW.md`](docs/WORKED_WORKFLOW.md)
+- [`docs/VALIDATION_AND_REPRODUCIBILITY.md`](docs/VALIDATION_AND_REPRODUCIBILITY.md)
+- [`docs/PROVENANCE.md`](docs/PROVENANCE.md)
+- [`docs/AUTHORIZATION_AND_LICENSING.md`](docs/AUTHORIZATION_AND_LICENSING.md)
 
-## Operational drivers
+## Scientific basis
 
-The DTM2020 operational model uses:
+The implementation and documentation are grounded in the published DTM literature, including the DTM2020/SWAMI documentation and the analytical formulation work of Xu, Du & Cao (2025), *Singularity-Free Formulations for Drag Temperature Model and Its Analytical Gradient*, DOI `10.2514/1.J064156`.
 
-- instantaneous F10.7 evaluated at t - 24 h;
-- the prior/trailing 81-day mean F10.7;
-- Kp delayed by 3 h;
-- mean Kp over the preceding 24 h.
+The public implementation preserves the operational DTM formulation basis. The singularity-free analytical reformulation described by Xu et al. is useful for analysis and gradients, but is not silently substituted for the accepted operational production basis.
 
-DTM2020 predicts thermospheric temperature, total mass density and composition.
+## Validation status
 
-## External resource
+The private Elara X acceptance programme established:
 
-See `resources/README.md`.
+- native/official equivalence over a 64-case campaign;
+- 576 native/oracle field comparisons with zero acceptance failures;
+- successful reference-position operation through the AMVS pathway;
+- complete-day and daily-average density production;
+- an authoritative Swarm-C 2022 annual run over **1,043,020** epochs with zero DTM model failures;
+- 365 calendar-day daily means, including 344 complete native 30-second days and 21 explicitly labelled partial-source days;
+- Combined Model Analysis and Heatmap interoperability;
+- managed CSV and PNG/PDF/SVG presentation;
+- controlled resource-authorisation behaviour.
 
-## Licensing
+Private/reference datasets used for those acceptance activities are not redistributed here.
 
-See `LICENSING.md`. The upstream SWAMI/CNES licensing boundary is separate
-from the repository-authored public-specification material.
+## Attribution
 
-## Validation and provenance
+DTM2020 and its official coefficients are attributed to CNES and the SWAMI project. This repository is an independent Elara X implementation/integration repository; it is not an official CNES or SWAMI repository and does not imply CNES endorsement.
 
-See `validation/ACCEPTANCE_SUMMARY.json`, `PROVENANCE.json` and the `docs/`
-directory.
+See [`NOTICE.md`](NOTICE.md) and [`docs/PROVENANCE.md`](docs/PROVENANCE.md).
