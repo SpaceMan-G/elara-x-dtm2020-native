@@ -1,12 +1,12 @@
 {
   "documentation_files": {
-    "docs/INPUTS_OUTPUTS_AND_PROCESS.md": "36dfa33f5faec001a80f08e9a4213595b7b9b957fb83cb0664aeafa12cfe642c",
-    "docs/MODEL_MATHEMATICS.md": "3249b837766db5b5434a69029eef701eabd7ac0e18cd0bfea03096ce51226221",
+    "docs/INPUTS_OUTPUTS_AND_PROCESS.md": "99821ddccb3a2296e4ed132f6355b87f6b04a6247b4afbbcd4e2e4cf2f9d097d",
+    "docs/MODEL_MATHEMATICS.md": "ee8717a3306bfbcf38a177fa57e3f6ec7a00b89b74c5f9cf0cddfb52ed928364",
     "docs/PHYSICAL_MODEL_AND_PROCESS.md": "6d6ffd54f9e39042fbb5b6d568ebe61b6ccb29c5b6b71926fa37c8362e686fb1",
     "docs/PROVENANCE.md": "6de436684518de2008ff65c911a6e4fbeabbee3241be3aae5abf530bda430c7f",
-    "docs/README.md": "f4adecab4ee8f6d587ba4641601a722ec597a923d905d8dd40158312659ea0d1",
-    "docs/VALIDATION_AND_REPRODUCIBILITY.md": "238faf9583a02c7fe1005aa5b86fef30c0cd36dff61479d5e62450f923c14016",
-    "docs/WORKED_WORKFLOW.md": "2486e774656b358b4138b325fae3ea4e9ec374cd82962230ad8f12adb4fcc352"
+    "docs/README.md": "118b7aac816cbd73e9d8fa01de73735c5ad10fb651a3d055c244410f93d07c99",
+    "docs/VALIDATION_AND_REPRODUCIBILITY.md": "2a1f5e2dc5888c4606556e1df610fda26b8ab1087ffa93f9dd344704bd316743",
+    "docs/WORKED_WORKFLOW.md": "958f30b951457582b444c040655cd1e377dad5633c61be76af6d0ff421cec80d"
   },
   "e01_1_rendering_correction": {
     "all_tracked_markdown_audited": true,
@@ -15,9 +15,24 @@
     "inline_parentheses_converted": 0,
     "parent_commit": "fda30666ade3ebb9097cd78823b937376a0694c0"
   },
+  "e01_2_inline_rendering_correction": {
+    "all_target_docs_audited": true,
+    "github_robust_inline_syntax": true,
+    "inline_expressions_normalized": 25,
+    "parent_commit": "bad678cf3b637295c88dc561372a59385b04b131",
+    "target_docs": [
+      "docs/README.md",
+      "docs/MODEL_MATHEMATICS.md",
+      "docs/PHYSICAL_MODEL_AND_PROCESS.md",
+      "docs/INPUTS_OUTPUTS_AND_PROCESS.md",
+      "docs/WORKED_WORKFLOW.md",
+      "docs/VALIDATION_AND_REPRODUCIBILITY.md",
+      "docs/PROVENANCE.md"
+    ]
+  },
   "enhancement_scope": "documentation_and_github_math_rendering_only",
   "licence_modified": false,
-  "mathjax_contract": "inline $...$; display mathematics uses GitHub fenced math blocks",
+  "mathjax_contract": "inline mathematics uses GitHub robust dollar-backtick syntax; display mathematics uses fenced math blocks",
   "model_resources_modified": false,
   "parent_commit": "48236b2b7e52558a0895a6e2e0e3cf515ecfac13",
   "parent_tree": "ca1691530f1cfa948628c54cbabd195101103fa6",

@@ -17,12 +17,12 @@ A thermospheric empirical model can be represented schematically as a mapping
 (T,\rho,\mathbf{n}),
 ```
 
-where $t$ is epoch, $\mathbf{r}$ is position, $\mathbf{s}$ contains the required space-weather drivers, $T$ is temperature, $\rho$ is total mass density and $\mathbf{n}$ denotes constituent densities where provided.
+where $`t`$ is epoch, $`\mathbf{r}`$ is position, $`\mathbf{s}`$ contains the required space-weather drivers, $`T`$ is temperature, $`\rho`$ is total mass density and $`\mathbf{n}`$ denotes constituent densities where provided.
 
 
 ## Constituent representation
 
-For constituent $i$, a schematic DTM representation is
+For constituent $`i`$, a schematic DTM representation is
 
 ```math
 n_i = A_i
@@ -30,7 +30,7 @@ n_i = A_i
 f_i(z),
 ```
 
-where $A_i$ is a constituent baseline coefficient, $G_i$ contains the fitted environmental variations, $\mathbf{x}$ is the environmental state, and $f_i(z)$ is the altitude/thermal structure.
+where $`A_i`$ is a constituent baseline coefficient, $`G_i`$ contains the fitted environmental variations, $`\mathbf{x}`$ is the environmental state, and $`f_i(z)`$ is the altitude/thermal structure.
 
 ## Total mass density
 
@@ -44,11 +44,11 @@ The operational species set used by the accepted Elara X implementation is H, He
 
 ## Temperature structure
 
-DTM2020 uses fitted exospheric and lower-boundary thermal parameters including $T_\infty$, $T_{120}$ and $T'_{120}$. These determine the altitude-dependent local temperature $T(z)$ and the constituent scale-height structure.
+DTM2020 uses fitted exospheric and lower-boundary thermal parameters including $`T_\infty`$, $`T_{120}`$ and $`T'_{120}`$. These determine the altitude-dependent local temperature $`T(z)`$ and the constituent scale-height structure.
 
 ## Environmental variations
 
-A schematic decomposition of a fitted quantity $Q$ is
+A schematic decomposition of a fitted quantity $`Q`$ is
 
 ```math
 Q = Q_0
@@ -67,7 +67,7 @@ The official coefficient file defines the amplitudes of the operational terms. T
 
 ## Daily aggregation
 
-For $N_d$ valid samples on UTC day $d$,
+For $`N_d`$ valid samples on UTC day $`d`$,
 
 ```math
 \bar{\rho}_d =
@@ -80,7 +80,7 @@ Missing trajectory samples are not invented. Partial-source days must be identif
 
 ## Unit discipline
 
-Density is normally exposed by the Elara X public interfaces in SI units of kg m$^{-3}$ unless the interface explicitly documents a model-native unit. Angles, altitude and space-weather indices must follow the repository interface contract. Do not infer units from a variable name alone.
+Density is normally exposed by the Elara X public interfaces in SI units of kg m$`^{-3}`$ unless the interface explicitly documents a model-native unit. Angles, altitude and space-weather indices must follow the repository interface contract. Do not infer units from a variable name alone.
 
 ## Scientific reference
 
