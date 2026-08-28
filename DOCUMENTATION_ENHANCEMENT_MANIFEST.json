@@ -1,16 +1,23 @@
 {
   "documentation_files": {
-    "docs/INPUTS_OUTPUTS_AND_PROCESS.md": "527cf5f3181254ce7279d41bd9ff5e3b05e799eee6e4bc2b50fb00cb27803128",
-    "docs/MODEL_MATHEMATICS.md": "cd2840b3af327dd96ba7cfdf1507e46131f4fc88fd8272c4fe1a7392336f24f9",
+    "docs/INPUTS_OUTPUTS_AND_PROCESS.md": "36dfa33f5faec001a80f08e9a4213595b7b9b957fb83cb0664aeafa12cfe642c",
+    "docs/MODEL_MATHEMATICS.md": "3249b837766db5b5434a69029eef701eabd7ac0e18cd0bfea03096ce51226221",
     "docs/PHYSICAL_MODEL_AND_PROCESS.md": "6d6ffd54f9e39042fbb5b6d568ebe61b6ccb29c5b6b71926fa37c8362e686fb1",
     "docs/PROVENANCE.md": "6de436684518de2008ff65c911a6e4fbeabbee3241be3aae5abf530bda430c7f",
-    "docs/README.md": "0c40187709eec89756c4e86b5fe4cbf515377c4f5087f2fef4019377ea7e5e20",
-    "docs/VALIDATION_AND_REPRODUCIBILITY.md": "e1bc21d98aae1c4e011d1c10c5ce84867bb059412b6189c619517ac7b4e008f8",
-    "docs/WORKED_WORKFLOW.md": "f25b73106c283ce21e33343aefe5cd7709398237555fba08797ce81560b8d1f9"
+    "docs/README.md": "f4adecab4ee8f6d587ba4641601a722ec597a923d905d8dd40158312659ea0d1",
+    "docs/VALIDATION_AND_REPRODUCIBILITY.md": "238faf9583a02c7fe1005aa5b86fef30c0cd36dff61479d5e62450f923c14016",
+    "docs/WORKED_WORKFLOW.md": "2486e774656b358b4138b325fae3ea4e9ec374cd82962230ad8f12adb4fcc352"
+  },
+  "e01_1_rendering_correction": {
+    "all_tracked_markdown_audited": true,
+    "display_blocks_converted": 14,
+    "github_markdown_api_probe": true,
+    "inline_parentheses_converted": 0,
+    "parent_commit": "fda30666ade3ebb9097cd78823b937376a0694c0"
   },
   "enhancement_scope": "documentation_and_github_math_rendering_only",
   "licence_modified": false,
-  "mathjax_contract": "GitHub native $...$ and $$...$$ delimiters",
+  "mathjax_contract": "inline $...$; display mathematics uses GitHub fenced math blocks",
   "model_resources_modified": false,
   "parent_commit": "48236b2b7e52558a0895a6e2e0e3cf515ecfac13",
   "parent_tree": "ca1691530f1cfa948628c54cbabd195101103fa6",

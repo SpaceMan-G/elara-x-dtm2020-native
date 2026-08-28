@@ -10,12 +10,12 @@ The equations below explain the physical and mathematical structure of the model
 
 A thermospheric empirical model can be represented schematically as a mapping
 
-$$
+```math
 \mathcal{M}:
 (t,\mathbf{r},\mathbf{s})
 \longrightarrow
 (T,\rho,\mathbf{n}),
-$$
+```
 
 where $t$ is epoch, $\mathbf{r}$ is position, $\mathbf{s}$ contains the required space-weather drivers, $T$ is temperature, $\rho$ is total mass density and $\mathbf{n}$ denotes constituent densities where provided.
 
@@ -24,11 +24,11 @@ where $t$ is epoch, $\mathbf{r}$ is position, $\mathbf{s}$ contains the required
 
 For constituent $i$, a schematic DTM representation is
 
-$$
+```math
 n_i = A_i
 \exp\!\left(G_i(\mathbf{x})\right)
 f_i(z),
-$$
+```
 
 where $A_i$ is a constituent baseline coefficient, $G_i$ contains the fitted environmental variations, $\mathbf{x}$ is the environmental state, and $f_i(z)$ is the altitude/thermal structure.
 
@@ -36,9 +36,9 @@ where $A_i$ is a constituent baseline coefficient, $G_i$ contains the fitted env
 
 The constituent contributions form total neutral mass density:
 
-$$
+```math
 \rho = \sum_i m_i n_i.
-$$
+```
 
 The operational species set used by the accepted Elara X implementation is H, He, O, N, N2 and O2.
 
@@ -50,7 +50,7 @@ DTM2020 uses fitted exospheric and lower-boundary thermal parameters including $
 
 A schematic decomposition of a fitted quantity $Q$ is
 
-$$
+```math
 Q = Q_0
 \left[
 1
@@ -61,7 +61,7 @@ Q = Q_0
 + G_{\mathrm{local\ time}}
 + G_{\mathrm{longitude}}
 \right].
-$$
+```
 
 The official coefficient file defines the amplitudes of the operational terms. This schematic expression documents the structure; it does not replace the accepted numerical kernel.
 
@@ -69,11 +69,11 @@ The official coefficient file defines the amplitudes of the operational terms. T
 
 For $N_d$ valid samples on UTC day $d$,
 
-$$
+```math
 \bar{\rho}_d =
 \frac{1}{N_d}
 \sum_{k=1}^{N_d}\rho_k.
-$$
+```
 
 Missing trajectory samples are not invented. Partial-source days must be identified as partial rather than promoted to complete-day means.
 
