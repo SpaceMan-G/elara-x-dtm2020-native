@@ -1,69 +1,57 @@
-# Validation and Reproducibility
+# DTM2020 Operational — Validation and Reproducibility
 
-## Validation philosophy
+## Validation principle
 
-The public implementation was accepted only after separating three questions:
+Three identities should be kept separate:
 
-1. Does the native implementation reproduce the official operational DTM behaviour?
-2. Does it work through real Elara X reference-position/time-series workflows?
-3. Can derived daily/annual products be generated without altering the pointwise model semantics?
+1. **scientific identity** — whether the public numerical core is the accepted model implementation;
+2. **interface identity** — whether public inputs/outputs preserve the accepted semantics and units;
+3. **application validation** — comparison against an external density/temperature reference.
 
-## Native / official equivalence
+A good external comparison does not replace implementation-equivalence evidence, and an implementation-equivalence result does not imply perfect agreement with nature.
 
-The controlled private acceptance programme established a 64-case campaign with:
+## Repository reproducibility record
 
-- 64 native operational evaluations;
-- an official SWAMI oracle comparison;
-- 576 compared output fields;
-- zero acceptance failures at the locked tolerances.
+A reproducible calculation should capture:
 
-The official oracle campaign is not redistributed in this repository, but the acceptance result is recorded as provenance.
-
-## Reference-position acceptance
-
-A Swarm-C TU Delft reference-position run evaluated 721 points over a six-hour interval at native 30-second cadence:
-
-- adapter failures: 0;
-- all DTM densities finite and positive;
-- direct first-point/native-adapter agreement: accepted.
-
-## Complete-day acceptance
-
-Two consecutive complete UTC days were evaluated:
-
-- 5,760 DTM2020 points;
-- 2,880 samples per day;
-- zero adapter failures;
-- daily arithmetic means independently reproduced.
-
-## Annual acceptance
-
-An authoritative private TU Delft Swarm-C 2022 trajectory/reference population was used for the accepted annual run:
-
-- 1,043,020 epochs;
-- zero DTM model failures;
-- 365 calendar-day means;
-- 344 complete native 30-second days;
-- 21 explicitly marked partial-source days;
-- zero completely missing calendar days;
-- no missing-sample interpolation.
-
-The private TU Delft source data are not redistributed here.
-
-## Reproducibility checklist
-
-For a reproducible run record:
-
-- repository Git commit;
-- `data/DTM_2020_F107_Kp.dat` SHA-256;
-- `LICENSE` SHA-256;
-- exact epoch/position data source;
-- F10.7/Kp source and mapping semantics;
-- input units;
-- output units;
-- Python/environment versions;
-- result CSV/figure hashes where relevant.
+- repository URL and Git commit;
+- Python/runtime versions;
+- exact input epochs and positions;
+- solar/geomagnetic driver source and values;
+- external coefficient/resource identity where applicable;
+- public interface name and units;
+- result CSV/figure hashes where publication products are produced.
 
 ## Public tests
 
-Run the repository's public tests using the Python version/environment described by the repository metadata. The public tests verify interface/contract behaviour without redistributing private Elara X science assets.
+The repository's existing tests remain part of the acceptance boundary. This documentation enhancement must not change the scientific source files or make an existing public test fail.
+
+## External comparisons
+
+When comparing with an external reference, report the reference provenance and sampling coverage. A useful signed relative difference is
+
+$$
+\delta_\rho =
+\frac{\rho_{\mathrm{model}}-\rho_{\mathrm{ref}}}
+{\rho_{\mathrm{ref}}}.
+$$
+
+The corresponding percentage is
+
+$$
+100\,\delta_\rho.
+$$
+
+These are comparison metrics, not automatic declarations that either source is defective.
+
+## Coverage-aware daily validation
+
+A complete-day statistic and an available-sample statistic must not be silently conflated. Store $N_d$ and, where a nominal cadence is known, the coverage fraction
+
+$$
+C_d = \frac{N_d}{N_{\mathrm{expected},d}}.
+$$
+
+## Accepted Elara X lineage
+
+This repository was published only after controlled scientific/provenance acceptance in the Elara X atmospheric-model programme. The enhancement phase changes documentation and GitHub presentation only; accepted scientific code remains immutable.

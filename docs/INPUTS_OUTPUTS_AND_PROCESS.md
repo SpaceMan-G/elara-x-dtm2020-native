@@ -1,70 +1,55 @@
-# Inputs, Outputs and Computation Process
+# DTM2020 Operational — Inputs, Outputs and Computation Process
 
-## Model inputs
+## Required input categories
 
-Operational DTM2020 requires the physical state and environmental drivers needed to evaluate one thermospheric point:
+- UTC epoch/day of year
+- altitude, latitude and longitude
+- local solar time
+- delayed F10.7
+- 81-day mean F10.7
+- delayed Kp and recent Kp-history quantity required by the operational model
 
-- epoch/day of year;
-- altitude;
-- latitude;
-- longitude;
-- local solar time;
-- F10.7 solar flux;
-- mean/centred F10.7 quantity required by the operational contract;
-- delayed/recent-history Kp quantities.
-
-The official operational model is applicable above the lower thermospheric boundary used by DTM2020; the accepted Elara X operational contract treats the DTM domain as above approximately 120 km.
-
-## Space-weather semantics
-
-The accepted Elara X operational mapping preserves the official operational distinction between:
-
-- instantaneous/delayed F10.7;
-- 81-day mean F10.7;
-- Kp delayed by the operational interval;
-- the recent Kp-history quantity used by DTM2020.
-
-These values must not be replaced by arbitrary daily replication.
-
-## Computational sequence
-
-A point evaluation follows this conceptual sequence:
-
-1. Validate epoch, position and domain.
-2. Resolve or accept the operational environmental drivers.
-3. Load the official coefficient resource.
-4. Evaluate fitted periodic/environmental variation functions.
-5. Determine exospheric and reference-boundary thermal parameters.
-6. Construct the altitude-dependent temperature field.
-7. Evaluate constituent number/mass densities for H, He, O, N, N2 and O2.
-8. Sum constituent contributions to total mass density.
-9. Return local temperature, exospheric temperature, total density and available constituent fields.
+The exact argument names, units, valid ranges and optional modes are defined by the repository's public Python interface and tests.
 
 ## Outputs
 
-The physical model provides:
+- local temperature
+- exospheric temperature
+- H, He, O, N, N2 and O2 constituent densities
+- mean molecular mass
+- total neutral mass density
 
-- total neutral mass density;
-- local temperature;
-- exospheric temperature;
-- mean molecular mass;
-- constituent densities for H, He, O, N, N2 and O2.
+## Computation sequence
 
-Public Python wrappers may normalise density to SI kg/m³ while retaining the physical identity of each model output.
+1. Validate the requested epoch, position and model domain.
+2. Resolve or receive the required solar and geomagnetic drivers.
+3. Convert the state to the conventions expected by the scientific core.
+4. Evaluate model-specific temporal, spatial and environmental basis functions.
+5. Evaluate temperature and constituent/reference-density structure.
+6. Construct total neutral mass density.
+7. Convert outputs to the public interface units.
+8. Preserve provenance for the driver source, model commit and any external resource.
 
-## Daily and annual products
+## Time-series use
 
-A daily mean used by Elara X is an arithmetic mean of all valid high-resolution DTM samples for that UTC day:
+For a trajectory with states $\{(t_k,\mathbf{r}_k)\}_{k=1}^N$, evaluate the model at each authoritative epoch/position:
 
-\[
-\bar{\rho}_{d} = \frac{1}{N_d}\sum_{k=1}^{N_d}\rho_k.
-\]
+$$
+\rho_k =
+\mathcal{M}_\rho
+\left(t_k,\mathbf{r}_k,\mathbf{s}_k\right).
+$$
 
-No missing source samples are invented.
+A daily product is then derived from the valid pointwise evaluations; it is not a different atmospheric model.
 
-For the accepted Swarm-C 2022 annual product:
+## Arithmetic daily mean
 
-- 365 calendar days contained source observations;
-- 344 were complete 30-second UTC days;
-- 21 contained source gaps and were explicitly labelled as partial-day available-sample means;
-- no missing samples were interpolated.
+For a UTC day with $N_d$ valid samples,
+
+$$
+\bar{\rho}_d =
+\frac{1}{N_d}
+\sum_{k=1}^{N_d} \rho_k.
+$$
+
+Coverage metadata should accompany the mean whenever the underlying trajectory is incomplete.

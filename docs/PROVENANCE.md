@@ -1,58 +1,34 @@
-# Provenance
+# DTM2020 Operational — Provenance and Scientific References
 
-## Official model authority
+## Repository role
 
-DTM2020 is a CNES thermosphere model developed in the SWAMI programme.
+This repository is a standalone public companion to the accepted Elara X atmospheric-model implementation. It is intended to make the model understandable and reproducible without exposing private application internals.
 
-Official SWAMI MCM repository:
+## Scientific model
 
-`https://github.com/swami-h2020-eu/mcm`
+- Model: **DTM2020 Operational**
+- Family: **Drag Temperature Model**
+- Scope: Operational F10.7/Kp-driven DTM2020 thermosphere model used for temperature, composition and neutral-density prediction.
+- Primary scientific reference: Official SWAMI DTM2020 documentation and Xu, Du & Cao (2025), Singularity-Free Formulations for Drag Temperature Model and Its Analytical Gradient, DOI 10.2514/1.J064156.
 
-Official DTM2020 documentation:
+## Source authority
 
-`https://swami-h2020-eu.github.io/mcm/dtm2020.html`
+The numerical authority is the accepted public scientific source already present in the repository. This enhancement does not translate, rewrite or optimise that source.
 
-The accepted Elara X implementation baseline used SWAMI MCM commit:
+## Licence authority
 
-`a488a7c9d030bfbe86e88ab3d28a7ec5589b92e0`
+The existing repository licence and notice files remain unchanged. Where an external coefficient/parameter file is required, its existing licence/provenance boundary remains unchanged.
 
-## Official operational coefficient resource
 
-Public repository path:
+## DTM2020 licensing boundary
 
-`data/DTM_2020_F107_Kp.dat`
+The official DTM2020 coefficient resource remains subject to the licence distributed in the repository. The original SWAMI Fortran source and private Elara X implementation internals are not part of this documentation enhancement. The existing `docs/AUTHORIZATION_AND_LICENSING.md` remains the publication-specific licensing record.
 
-The publication controller copies this file from the authorised local SWAMI MCM provenance root and records its SHA-256 in `PUBLICATION_MANIFEST.json`.
 
-## Official licence
+## Documentation status
 
-The repository-root `LICENSE` is copied verbatim from the official local SWAMI MCM provenance root used for publication.
+The `docs/` files added/updated by the Elara X repository-enhancement phase are explanatory publication material. They are checked for GitHub-native MathJax delimiters and are hash-bound in `DOCUMENTATION_ENHANCEMENT_MANIFEST.json`.
 
-Its SHA-256 is recorded in `PUBLICATION_MANIFEST.json`.
+## Citation
 
-## Implementation provenance
-
-The public Python implementation is an independently structured Elara X implementation. It was developed from the scientific publications and checked against official operational behaviour.
-
-The public repository deliberately excludes:
-
-- the original SWAMI/CNES Fortran source;
-- private Elara X DTM parser/bridge/runtime internals;
-- private resource authorisation data;
-- private model-validation source datasets.
-
-## Scientific references
-
-### SWAMI / DTM2020
-
-SWAMI project documentation and DTM2020 documentation, CNES/SWAMI.
-
-### Analytical DTM formulation
-
-Xu, Du & Cao (2025), *Singularity-Free Formulations for Drag Temperature Model and Its Analytical Gradient*, DOI `10.2514/1.J064156`.
-
-## Validation provenance
-
-The private Elara X acceptance lineage includes locked native/official equivalence, real reference-position evaluation, daily aggregation, annual Swarm-C operation, Combined Model Analysis and Heatmap acceptance.
-
-Only publication-safe summaries are included here.
+Cite both the repository commit used for the calculation and the underlying scientific model reference above.

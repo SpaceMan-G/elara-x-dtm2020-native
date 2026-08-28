@@ -1,97 +1,87 @@
-# DTM2020 Governing Mathematics and Physical Model
+# DTM2020 Operational — Governing Mathematics
 
-## 1. Purpose
+## Purpose
 
-The Drag Temperature Model (DTM) is a semi-empirical thermosphere model designed to predict neutral atmospheric temperature, mass density and constituent composition as functions of location, time/season, solar activity and geomagnetic activity.
+Operational F10.7/Kp-driven DTM2020 thermosphere model used for temperature, composition and neutral-density prediction.
 
-The operational DTM2020 variant used here is driven by F10.7 and Kp.
+The equations below explain the physical and mathematical structure of the model. They are intentionally separated from the accepted implementation source: documentation must not silently become a second, divergent implementation.
 
-## 2. Constituent representation
+## Empirical state dependence
 
-The production formulation represents the principal neutral species:
+A thermospheric empirical model can be represented schematically as a mapping
 
-- H
-- He
-- O
-- N
-- N2
-- O2
+$$
+\mathcal{M}:
+(t,\mathbf{r},\mathbf{s})
+\longrightarrow
+(T,\rho,\mathbf{n}),
+$$
 
-For constituent \(i\), the number-density structure can be written schematically as
+where $t$ is epoch, $\mathbf{r}$ is position, $\mathbf{s}$ contains the required space-weather drivers, $T$ is temperature, $\rho$ is total mass density and $\mathbf{n}$ denotes constituent densities where provided.
 
-\[
-n_i = A_i \exp\!\left(G_i(L)\right) f_i(h),
-\]
 
-where:
+## Constituent representation
 
-- \(A_i\) is a constituent-specific baseline coefficient;
-- \(G_i(L)\) collects the fitted environmental variations;
-- \(L\) denotes the model's environmental/periodic driver basis;
-- \(f_i(h)\) represents the altitude-dependent diffusive/thermal structure.
+For constituent $i$, a schematic DTM representation is
 
-The exact fitted coefficients are supplied in the official operational coefficient file.
+$$
+n_i = A_i
+\exp\!\left(G_i(\mathbf{x})\right)
+f_i(z),
+$$
 
-## 3. Total mass density
+where $A_i$ is a constituent baseline coefficient, $G_i$ contains the fitted environmental variations, $\mathbf{x}$ is the environmental state, and $f_i(z)$ is the altitude/thermal structure.
 
-The total neutral mass density is assembled from the constituent number densities:
+## Total mass density
 
-\[
-\rho = N_A^\ast \sum_i m_i n_i,
-\]
+The constituent contributions form total neutral mass density:
 
-where \(m_i\) denotes constituent molecular/atomic mass and the conversion factor \(N_A^\ast\) represents the unit/conversion convention used by the DTM formulation.
+$$
+\rho = \sum_i m_i n_i.
+$$
 
-The implementation preserves the accepted DTM constituent-to-total-density calculation semantics.
+The operational species set used by the accepted Elara X implementation is H, He, O, N, N2 and O2.
 
-## 4. Temperature structure
+## Temperature structure
 
-The operational formulation uses the characteristic temperatures:
+DTM2020 uses fitted exospheric and lower-boundary thermal parameters including $T_\infty$, $T_{120}$ and $T'_{120}$. These determine the altitude-dependent local temperature $T(z)$ and the constituent scale-height structure.
 
-- \(T_\infty\): exospheric temperature;
-- \(T_{120}\): temperature at the 120 km reference boundary;
-- \(T'_{120}\): temperature-gradient parameter at the reference boundary.
+## Environmental variations
 
-These quantities determine the thermal structure used by the altitude-dependent constituent profiles and the local temperature \(T(z)\).
+A schematic decomposition of a fitted quantity $Q$ is
 
-## 5. Environmental variation basis
+$$
+Q = Q_0
+\left[
+1
++ G_{\mathrm{solar}}
++ G_{\mathrm{geomag}}
++ G_{\mathrm{season}}
++ G_{\mathrm{latitude}}
++ G_{\mathrm{local\ time}}
++ G_{\mathrm{longitude}}
+\right].
+$$
 
-The fitted variation functions account for combinations of:
+The official coefficient file defines the amplitudes of the operational terms. This schematic expression documents the structure; it does not replace the accepted numerical kernel.
 
-- solar activity;
-- geomagnetic activity;
-- annual and semi-annual variation;
-- latitude dependence;
-- local solar time / diurnal and semidiurnal structure;
-- longitude-dependent terms where present in the operational formulation.
+## Daily aggregation
 
-The operational driver contract uses:
+For $N_d$ valid samples on UTC day $d$,
 
-- F10.7 at the appropriate delayed epoch;
-- an 81-day mean F10.7 quantity;
-- Kp with the operational delayed/recent-history semantics.
+$$
+\bar{\rho}_d =
+\frac{1}{N_d}
+\sum_{k=1}^{N_d}\rho_k.
+$$
 
-## 6. Operational coefficient groups
+Missing trajectory samples are not invented. Partial-source days must be identified as partial rather than promoted to complete-day means.
 
-The official operational coefficient resource is structured around coefficient groups corresponding to thermospheric temperature and constituent terms. The accepted Elara X parser identified the operational header semantics as:
 
-`TT H HE O N2 O2 N T0 TP`
+## Unit discipline
 
-corresponding to:
+Density is normally exposed by the Elara X public interfaces in SI units of kg m$^{-3}$ unless the interface explicitly documents a model-native unit. Angles, altitude and space-weather indices must follow the repository interface contract. Do not infer units from a variable name alone.
 
-- `TT` → exospheric-temperature coefficient family;
-- `H`, `HE`, `O`, `N2`, `O2`, `N` → constituent coefficient families;
-- `T0` → reference-boundary temperature family;
-- `TP` → reference-boundary temperature-gradient family.
+## Scientific reference
 
-## 7. Original versus singularity-free formulation
-
-Xu, Du & Cao (2025) derive singularity-free formulations and analytical gradients for DTM. Those formulations are valuable for analytical work and optimisation.
-
-The Elara X production implementation does not silently replace the accepted operational formulation with a transformed approximation. The accepted production basis remains the operational DTM structure, while the published singularity-free work is treated as an analytical reference.
-
-## 8. Units
-
-The official DTM implementation historically expresses total and partial densities in g/cm³ internally/output-side, with model wrappers often converting to SI kg/m³.
-
-This public repository documents both the model-level physical semantics and the Python interface semantics. Always follow the public interface docstrings/tests for the exact units expected by a particular function.
+Official SWAMI DTM2020 documentation and Xu, Du & Cao (2025), Singularity-Free Formulations for Drag Temperature Model and Its Analytical Gradient, DOI 10.2514/1.J064156.

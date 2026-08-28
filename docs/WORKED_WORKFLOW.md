@@ -1,65 +1,67 @@
-# Worked Workflow
+# DTM2020 Operational — Worked Workflow
 
-This is a process-level worked example showing how an operational DTM2020 calculation should be organised without inventing unavailable driver data.
+## Example A: single atmospheric point
 
-## Example request
+Assume a spacecraft state is known at a UTC epoch.
 
-Evaluate DTM2020 at a spacecraft position near 300 km altitude at a known UTC epoch.
+### 1. Establish the geometry
 
-## Step 1 — establish the point
+Record the epoch, altitude, latitude and longitude using the conventions required by the public interface. If local solar time is an explicit input, compute or provide it using a provenance-controlled method.
 
-Provide:
+### 2. Establish space-weather inputs
 
-- UTC epoch;
-- altitude;
-- geodetic/geocentric latitude convention required by the interface;
-- longitude;
-- local solar time if the selected interface requires it explicitly.
+Provide the model-specific solar and geomagnetic quantities. Preserve delayed, averaged and history semantics; do not replace them with convenient but scientifically different values.
 
-## Step 2 — establish operational drivers
+### 3. Evaluate the public interface
 
-Obtain the correct operational F10.7 and Kp quantities for that epoch.
+Use the repository's public entry point rather than reaching into private/internal functions.
 
-Do not substitute a single daily Ap/Kp value into every operational history slot. DTM2020 distinguishes the delayed/current geomagnetic quantity from its recent-history quantity.
+### 4. Validate outputs
 
-## Step 3 — load the official coefficients
+At minimum check:
 
-Use:
+- finite temperature where returned;
+- finite, positive total mass density in the physical model domain;
+- constituent densities are finite/non-negative where returned;
+- output units match the interface documentation.
 
-`data/DTM_2020_F107_Kp.dat`
+### 5. Record provenance
 
-The coefficient resource is model data, not a set of tunable Elara X parameters.
+Record the Git commit, input epoch/position, driver values/source, and any external coefficient/resource identity.
 
-## Step 4 — evaluate thermal parameters
+## Example B: orbital time series
 
-The model evaluates fitted variations controlling:
+Given authoritative trajectory samples
 
-- exospheric temperature;
-- the 120 km reference temperature;
-- the reference temperature-gradient parameter.
+$$
+(t_1,\mathbf{r}_1),\ldots,(t_N,\mathbf{r}_N),
+$$
 
-## Step 5 — evaluate constituent profiles
+evaluate the model independently at every sample to obtain
 
-The thermal structure and constituent coefficient families are used to evaluate H, He, O, N, N2 and O2.
+$$
+\rho_1,\ldots,\rho_N.
+$$
 
-## Step 6 — form total density
+Then aggregate only after pointwise evaluation. For a daily mean,
 
-The constituent mass contributions are summed to form total mass density.
+$$
+\bar{\rho}_d =
+\frac{1}{N_d}
+\sum_{k=1}^{N_d}\rho_k.
+$$
 
-## Step 7 — report with provenance
+## Example C: interpretation for drag
 
-A reproducible result should record:
+If a downstream drag analysis uses
 
-- epoch and position;
-- input driver values;
-- coefficient-file identity/hash;
-- implementation commit;
-- output units;
-- total density and temperatures;
-- any external space-weather source identity.
+$$
+a_D =
+\frac{1}{2}
+\rho
+C_D
+\frac{A}{m}
+v_{\mathrm{rel}}^2,
+$$
 
-## Step 8 — time-series aggregation
-
-For an orbit time series, repeat the point evaluation at each authoritative spacecraft epoch/position. Daily means are then formed from the valid pointwise results; the DTM equations themselves are not replaced by a separate daily model.
-
-The accepted Elara X annual test followed this pointwise-then-aggregate pattern for more than one million Swarm-C epochs.
+the atmospheric repository supplies $\rho$. The spacecraft ballistic parameters $C_D$, $A/m$ and the relative-flow velocity are external inputs and should not be attributed to the atmospheric model.

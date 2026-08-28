@@ -82,3 +82,21 @@ Private/reference datasets used for those acceptance activities are not redistri
 DTM2020 and its official coefficients are attributed to CNES and the SWAMI project. This repository is an independent Elara X implementation/integration repository; it is not an official CNES or SWAMI repository and does not imply CNES endorsement.
 
 See [`NOTICE.md`](NOTICE.md) and [`docs/PROVENANCE.md`](docs/PROVENANCE.md).
+
+<!-- ELARA_X_SCIENTIFIC_DOCUMENTATION_START -->
+## Scientific documentation
+
+The Elara X repository-enhancement programme provides a consistent scientific guide for this accepted model implementation:
+
+- [Documentation index](docs/README.md)
+- [Governing mathematics](docs/MODEL_MATHEMATICS.md)
+- [Physical model and process](docs/PHYSICAL_MODEL_AND_PROCESS.md)
+- [Inputs, outputs and computation process](docs/INPUTS_OUTPUTS_AND_PROCESS.md)
+- [Worked workflow](docs/WORKED_WORKFLOW.md)
+- [Validation and reproducibility](docs/VALIDATION_AND_REPRODUCIBILITY.md)
+- [Provenance and scientific references](docs/PROVENANCE.md)
+
+Equations in these documents use GitHub-native MathJax syntax.
+
+This enhancement changes documentation only. The accepted scientific source, model resources, licences and validation identity remain unchanged.
+<!-- ELARA_X_SCIENTIFIC_DOCUMENTATION_END -->
